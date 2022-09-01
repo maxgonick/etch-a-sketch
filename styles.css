@@ -1,5 +1,15 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  column-gap: 0px;
+  grid-template-columns: repeat(4, 12vw);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.grid-child:nth-child(4n) {
+  border-right: 0.0625rem solid;
 }
