@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector(".grid-container");
 const sideSize = 10;
 const size = sideSize * sideSize;
+const hoverState = document.querySelector(".grid-child:hover");
 
 gridContainer.style.gridTemplateColumns = `repeat(${sideSize}, ${
   32 / sideSize
@@ -34,6 +35,12 @@ for (let i = 0; i < sideSize; i++) {
 
 const gridChild = document.querySelectorAll(".grid-child");
 
-for (let i = 0; i < gridChild.length; i++) {
+for (let i = 0; i < sideSize; i++) {
   gridChild.item(sideSize - 1 + sideSize * i).style.borderRight = "2px solid";
 }
+
+gridChild.forEach((element) => {
+  element.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = "black";
+  });
+});
