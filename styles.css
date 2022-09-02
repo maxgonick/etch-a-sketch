@@ -1,6 +1,5 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 12vw);
 }
 
 body {
@@ -10,6 +9,6 @@ body {
   min-height: 100vh;
 }
 
-.grid-child:nth-child(4n) {
-  border-right: 0.0625rem solid;
+.grid-child:hover {
+  background-color: black;
 }

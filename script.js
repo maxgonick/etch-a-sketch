@@ -1,43 +1,39 @@
 const gridContainer = document.querySelector(".grid-container");
+const sideSize = 10;
+const size = sideSize * sideSize;
+
+gridContainer.style.gridTemplateColumns = `repeat(${sideSize}, ${
+  32 / sideSize
+}rem)`;
 
 //Create divs
-for (let i = 0; i < 4; i++) {
-  let temp = document.createElement("div");
-  gridContainer.appendChild(temp);
-  temp.style.width = "12vw";
-  temp.style.minHeight = "12vh";
-  temp.classList.add("grid-child");
-  temp.style.borderTop = "0.0625rem solid";
-  temp.style.borderLeft = "0.0625rem solid";
-  temp.style.borderBottom = "0.0625rem solid";
+for (let i = 0; i < sideSize; i++) {
+  if (i == 0 || i == sideSize) {
+    for (let j = 0; j < sideSize; j++) {
+      let temp = document.createElement("div");
+      gridContainer.appendChild(temp);
+      temp.style.width = `${32 / sideSize}rem`;
+      temp.style.height = `${32 / sideSize}rem`;
+      temp.classList.add("grid-child");
+      temp.style.borderTop = "2px solid";
+      temp.style.borderLeft = "2px solid";
+      temp.style.borderBottom = "2px solid";
+    }
+  } else {
+    for (let j = 0; j < sideSize; j++) {
+      let temp = document.createElement("div");
+      gridContainer.appendChild(temp);
+      temp.style.width = `${32 / sideSize}rem`;
+      temp.style.height = `${32 / sideSize}rem`;
+      temp.classList.add("grid-child");
+      temp.style.borderLeft = "2px solid";
+      temp.style.borderBottom = "2px solid";
+    }
+  }
 }
 
-for (let i = 0; i < 4; i++) {
-  let temp = document.createElement("div");
-  gridContainer.appendChild(temp);
-  temp.style.width = "12vw";
-  temp.style.minHeight = "12vh";
-  temp.classList.add("grid-child");
-  temp.style.borderLeft = "0.0625rem solid";
-  temp.style.borderBottom = "0.0625rem solid";
-}
+const gridChild = document.querySelectorAll(".grid-child");
 
-for (let i = 0; i < 4; i++) {
-  let temp = document.createElement("div");
-  gridContainer.appendChild(temp);
-  temp.style.width = "12vw";
-  temp.style.minHeight = "12vh";
-  temp.classList.add("grid-child");
-  temp.style.borderLeft = "0.0625rem solid";
-  temp.style.borderBottom = "0.0625rem solid";
-}
-
-for (let i = 0; i < 4; i++) {
-  let temp = document.createElement("div");
-  gridContainer.appendChild(temp);
-  temp.style.width = "12vw";
-  temp.style.minHeight = "12vh";
-  temp.classList.add("grid-child");
-  temp.style.borderLeft = "0.0625rem solid";
-  temp.style.borderBottom = "0.0625rem solid";
+for (let i = 0; i < gridChild.length; i++) {
+  gridChild.item(sideSize - 1 + sideSize * i).style.borderRight = "2px solid";
 }
